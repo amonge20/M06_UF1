@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicios iniciales de javascript 1</title>
+        <script src="JS/script.js"></script>
+    </head>
+    <body>
+        <!--CREACION DEL BOTON Y QUE AL DARLE CLIC TIENE QUE MOSTRAR UN ALERT-->
+        <p>CREACION DEL BOTON Y QUE AL DARLE CLIC TIENE QUE MOSTRAR UN ALERT</p>
+        <button onclick="clica()">click</button> 
+
+        <!--CREAR UN DIV, DENTRO DEL DIV UN TEXTO EN EL QUE CUANDO PONGAS EL RATÓN ENCIMA PUES QUE SALGA EL ALERT-->
+        <div>
+            <p onmouseover="muestra()">ACERCATE</p>
+        </div>
+
+        <!--UN INPUT EN EL QUE PONEMOS UN TEXTO U NUMERO Y QUE AL DARLE CLIC SE NOS MUESTRA UN ALERT CON LO QUE HEMOS PUESTO-->
+        <div>
+            <p>RESULTADO QUE SE MUESTRA EN EL ALERT</p>
+            <input id="resuelto">
+            <button onclick="resultado()">Clica</button>
+        </div>
+
+        <!--UN INPUT EN QUE LE PONES UN NUMERO DEL 1 AL 10 Y QUE HAGA UN BUCLE PARA UNA TABLA DE MULTIPLICAR-->
+        <div>
+            <p>TABLA DE MULTIPLICAR</p>
+            <input type="number" id="IntroducirNumero">
+            <button onclick="numeroIntroducido()">Clica</button>
+        </div>
+    </body>
+</html>
