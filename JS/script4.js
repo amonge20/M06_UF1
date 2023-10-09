@@ -1,14 +1,19 @@
-//EN ESTA FUNCIO EN LO QUE FA ES ESCOLLIR 2 NUMEROS I DESPRES ES MOSTRARA EL NUMERO MÉS PROXIM A 100
+//EN ESTA FUNCIO EN LO QUE FA ES ESCOLLIR 2 NUMEROS I DESPRES ES MOSTRARA EL NUMERO MÉS PROXIM A 100 (ME FALLA)
 function aproximacion(){
     //Usuari introduïra el numero que vol
     let numero1 = parseInt = prompt("Introdueix numero 1: ");
     let numero2 = parseInt = prompt("Introdueix numero 2: ");
+   
+    let diferencia1 = math.abs(numero1 - 100);
+    let diferencia2 = math.abs(numero2 - 100);
 
     //Fem les condicions en les que si el numero 1 s'aproximi més de 100 que el numero 2 o que el numero 2 s'aproximi més de 100 que el numero 1
-    if (numero1 >= 100 && numero2 <= 100) {
-        console.log(numero1 + " S'aproxima més de 100");
+    if (diferencia1 < diferencia2) {
+        console.log(`${numero1} S'aproxima a 100`);
+    } else if (diferencia2 < diferencia1){
+        console.log(`${numero2} s'aproxima a 100`);
     } else {
-        console.log(numero2 + " S'aproxima més de 100");
+        console.log("ERROR!!!!");
     }
 }
 //EN ESTA FUNCIO EN LO QUE FA ES ESCOLLIR 3 NUMEROS I DESPRES ES MOSTRARA L'HORA AMB AQUEST FORMAT (HH:MM:SS)

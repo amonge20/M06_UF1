@@ -1,4 +1,4 @@
-function calcularCanvi() {
+function calcularCanvi() { //FALLA)
     let producte = parseFloat(prompt("Demana el preu del producte: "));
     let dinerPagat = parseFloat(prompt("Demana els diners lliurats: "));
 
@@ -33,11 +33,6 @@ function calcularCanvi() {
             }
         }
     }
-
-   /* console.log("Canvi a tornar:");
-    for (const denominacio in canvi) {
-        console.log(denominacio + " euros: " + (canvi[denominacio] * denominacio).toFixed(2));
-    }*/
 
     console.log("Número de billetes devueltos:");
     for (const denominacio in billets) {

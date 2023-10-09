@@ -1,4 +1,4 @@
-function telefonica(){
+function telefonica(){ //(falla en los 2)
     //Demana a l'usuari per el temps de la trucada
     var tempsTelefon = parseInt = prompt("Introdueïx la duració dela trucada: ");
 
