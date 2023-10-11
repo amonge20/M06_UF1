@@ -1,4 +1,3 @@
-//https://www.youtube.com/watch?v=RAu_lLyKEnQ
 function tabla() {
     let files = parseInt = prompt("Numero de filas: ");
     let columnes = parseInt = prompt("Numero de columnas: ");
@@ -10,7 +9,7 @@ function tabla() {
         const fila = document.createElement("tr");
         for (let j = 1; j <= columnes; j++) {
             const celda = document.createElement("td");
-            celda.textContent = i + ":" + j;
+            celda.textContent = (i * j);
             fila.appendChild(celda);
         }
         taula.appendChild(fila);
