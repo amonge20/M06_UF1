@@ -7,6 +7,4 @@ function numeros(){
     //calcula els numeros que hem introduït a les variables
     let resultadoFinal = (a+b+c)/2;
     console.log(resultadoFinal)
-
 }
-

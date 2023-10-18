@@ -1,41 +1,41 @@
-function calcularCanvi() { //FALLA)
-    let producte = parseFloat(prompt("Demana el preu del producte: "));
-    let dinerPagat = parseFloat(prompt("Demana els diners lliurats: "));
+function calcularCanvi() {
+    let precioProducto = parseFloat(prompt("Ingrese el precio del producto: "));
+    let dineroPagado = parseFloat(prompt("Ingrese el dinero entregado: "));
 
-    // Convierte los precios y el dinero pagado a centavos para facilitar los cálculos.
-    producte = producte * 100;
-    dinerPagat = dinerPagat * 100;
+    // Convert prices and paid money to cents for easier calculations.
+    precioProducto = precioProducto * 100;
+    dineroPagado = dineroPagado * 100;
 
-    // Calcula la diferencia entre el dinero pagado y el precio del producto.
-    let diferencia = dinerPagat - producte;
+    // Calculate the difference between the paid money and the product price.
+    let diferencia = dineroPagado - precioProducto;
 
-    // Array de denominaciones disponibles (en centavos y euros).
-    const denominacions = [500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+    // Array of available denominations (in cents and euros).
+    const denominations = [50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
 
-    console.log("Preu del producte: " + (producte / 100).toFixed(2) + " euros");
-    console.log("Diners pagats: " + (dinerPagat / 100).toFixed(2) + " euros");
-    console.log("Canvi a tornar: " + (diferencia / 100).toFixed(2) + " euros");
+    console.log("Precio del producto: " + (precioProducto / 100).toFixed(2) + " euros");
+    console.log("Dinero pagado: " + (dineroPagado / 100).toFixed(2) + " euros");
+    console.log("Cambio a devolver: " + (diferencia / 100).toFixed(2) + " euros");
 
-    const canvi = {};
-    const billets = {};
+    const cambio = {};
+    const billetes = {};
 
-    for (let i = 0; i < denominacions.length; i++) {
-        const denominacio = denominacions[i];
+    for (let i = 0; i < denominations.length; i++) {
+        const denominacion = denominations[i];
 
-        if (diferencia >= denominacio * 100) {
-            const quantitat = Math.floor(diferencia / (denominacio * 100));
-            canvi[denominacio] = quantitat;
-            diferencia -= quantitat * denominacio * 100;
+        if (diferencia >= denominacion) {
+            const cantidad = Math.floor(diferencia / denominacion);
+            cambio[denominacion / 100] = cantidad;
+            diferencia -= cantidad * denominacion;
 
-            // Si la denominación es un billete (mayor o igual a 100), registra el número de billetes devueltos.
-            if (denominacio >= 100) {
-                billets[denominacio] = quantitat;
+            // If the denomination is a bill (greater than or equal to 100), record the number of bills returned.
+            if (denominacion >= 100) {
+                billetes[denominacion / 100] = cantidad;
             }
         }
     }
 
     console.log("Número de billetes devueltos:");
-    for (const denominacio in billets) {
-        console.log(denominacio + " euros: " + billets[denominacio]);
+    for (const denominacion in billetes) {
+        console.log(denominacion + " euros: " + billetes[denominacion]);
     }
 }

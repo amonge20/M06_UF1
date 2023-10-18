@@ -13,6 +13,3 @@ function fibonacci(){
     }
     return b;
 }
-
-console.log(fibonacci());
-
