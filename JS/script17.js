@@ -4,4 +4,4 @@ function letra3(){
     var posicion = prompt("Elige el nº de posición: ");
 
     
-}
+} 
