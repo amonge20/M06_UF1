@@ -1,30 +1,35 @@
-function CodigoDeBarras(barcode) {
-    let odd = 0;
-    let even = 0;
-
-    for (let i = barcode.length - 2; i >= 0; i -= 2) {
-        odd += parseInt(barcode[i]);
+function calcularDigitoControlEAN(digitos) {
+    // Verifica si el número de dígitos es válido
+    if (digitos.length !== 7 && digitos.length !== 12) {
+      return "Número de dígitos no válido";
     }
-
-    for (let i = barcode.length - 1; i >= 0; i -= 2) {
-        even += parseInt(barcode[i]);
+  
+    // Convierte los dígitos en un arreglo
+    const digitArray = digitos.split("").map(Number);
+  
+    // Calcula la suma de los dígitos según la regla
+    let suma = 0;
+    for (let i = 0; i < digitArray.length; i++) {
+      suma += i % 2 === 0 ? digitArray[i] : digitArray[i] * 3;
     }
-
-    let total = odd + even * 3;
-    let check = (10 - (total % 10)) % 10;
-    return check;
-}
-
-function checkDigit(barcode) {
-    let check = CodigoDeBarras(barcode);
-    return check;
-}
-
-let barcode = prompt("Introduïu el codi de barres (EAN8 o EAN13):");
-
-if (barcode.length === 8 || barcode.length === 13) {
-    let check = checkDigit(barcode);
-    console.log("El dígit de control calculat és: " + check);
-} else {
-    console.log("El codi de barres introduït no té la longitud correcta (8 o 13 dígits).");
-}
+  
+    // Calcula el dígito de control restando la suma del próximo múltiplo de 10
+    const digitoControl = (10 - (suma % 10)) % 10;
+  
+    return digitoControl;
+  }
+  
+  function calcularDCCodigoDeBarras() {
+    // Solicita al usuario que ingrese el número de dígitos
+    const digitos = prompt("Ingresa los dígitos (7 para EAN-8 o 12 para EAN-13):");
+  
+    // Calcula el dígito de control
+    const digitoControl = calcularDigitoControlEAN(digitos);
+  
+    // Muestra el resultado
+    if (digitoControl !== "Número de dígitos no válido") {
+      console.log("Dígito de control calculado: " + digitoControl);
+    } else {
+      console.log("Número de dígitos no válido. Ingresa 7 para EAN-8 o 12 para EAN-13.");
+    }
+  }  
